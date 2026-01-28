@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anne Generator v9.5 - Mega Streamlined</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #050505; color: #d1d1d1; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .gold-border { border: 1px solid #c5a02e; }
+        .gold-text { color: #c5a02e; }
+        .gold-bg { background-color: #c5a02e; }
+        select { background-color: #0a0a0a; color: #fff; border: 1px solid #222; transition: all 0.2s; appearance: none; cursor: pointer; font-size: 0.72rem; }
+        select:focus { border-color: #c5a02e; outline: none; box-shadow: 0 0 15px rgba(197, 160, 46, 0.1); }
+        .btn-copy { transition: all 0.2s; position: relative; overflow: hidden; }
+        .btn-copy:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-copy:active { transform: translateY(0); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #c5a02e; border-radius: 10px; }
+        .section-card { background: #0d0d0d; border: 1px solid #161616; padding: 1rem; border-radius: 1rem; }
+        .history-item { border-bottom: 1px solid #1a1a1a; transition: background 0.2s; font-size: 0.7rem; }
+        .history-item:hover { background: #111; }
+        .footer-text { font-size: 0.65rem; color: #666; letter-spacing: 0.05em; }
+        .truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-[1600px] mx-auto">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-6 gap-4 border-b border-zinc-900 pb-4">
+            <div>
+                <h1 class="text-3xl font-black gold-text uppercase tracking-tighter italic">Anne Generator <span class="text-white text-sm font-normal opacity-40 not-italic">v9.5 MEGA</span></h1>
+                <p class="text-gray-600 text-[9px] mt-1 uppercase tracking-[0.3em]">Full 20-Matrix | Skin Locked | Crafted by Imron Al</p>
+            </div>
+            <div id="authStatus" class="text-right text-[8px] text-zinc-600 font-mono uppercase tracking-widest">
+                System: Active | Cloud: Connected
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- Sidebar: Memory Cloud -->
+            <div class="lg:col-span-2 space-y-4">
+                <div class="section-card border-l-2 border-yellow-600 shadow-xl h-[850px] flex flex-col">
+                    <h3 class="text-[9px] font-black gold-text mb-3 uppercase tracking-widest text-center">Cloud Memory</h3>
+                    <div id="historyList" class="flex-1 overflow-y-auto space-y-1 pr-1">
+                        <p class="text-zinc-700 italic text-center py-10 text-[9px]">Menyinkronkan...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kontrol Utama -->
+            <div class="lg:col-span-10 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                    
+                    <!-- 1. POSE (20) -->
+                    <div class="space-y-1">
+                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">1. Pose & Interaksi (20)</label>
+                        <select id="pose" class="w-full p-2 rounded-md">
+                            <option value="mirror-selfie" selected>01. Mirror Selfie (iPhone 17 Orange)</option>
+                            <option value="direct-selfie">02. Selfie POV (Kamera Depan)</option>
+                            <option value="leaning-forward">03. Condong ke Depan (Sensual)</option>
+                            <option value="adjust-strap">04. Memperbaiki Tali Baju (Teasing)</option>
+                            <option value="trace-collarbone">05. Menyentuh Tulang Selangka</option>
+                            <option value="run-fingers">06. Menyisir Rambut dengan Jari</option>
+                            <option value="bite-lip-shoulder">07. Lirik Bahu & Gigit Bibir</option>
+                            <option value="holding-coffee">08. Memegang Gelas Kopi (Candid)</option>
+                            <option value="sitting-floor">09. Duduk Melantai (Manja)</option>
+                            <option value="crouching">10. Jongkok Gemas (Looking Up)</option>
+                            <option value="side-lying">11. Berbaring Menyamping (Alluring)</option>
+                            <option value="peace-sign">12. Peace Sign (Playful)</option>
+                            <option value="checking-phone">13. Fokus Melihat Layar HP</option>
+                            <option value="looking-over-shoulder">14. Menoleh ke Belakang</option>
+                            <option value="walking-towards">15. Berjalan ke Arah Kamera</option>
+                            <option value="sitting-elegantly">16. Duduk Anggun di Kursi</option>
+                            <option value="hugging-knees">17. Memeluk Lutut (Innocent)</option>
+                            <option value="fixing-bangs">18. Merapikan Poni (Gemas)</option>
+                            <option value="reaching-out">19. Tangan Menjangkau Lensa</option>
+                            <option value="hand-on-cheek">20. Tangan di Pipi (Melamun)</option>
+                        </select>
+                    </div>
+
+                    <!-- 2. EKSPRESI (20) -->
+                    <div class="space-y-1">
+                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">2. Ekspresi Mikro (20)</label>
+                        <select id="expression" class="w-full p-2 rounded-md">
+                            <option value="pouting" selected>01. Pouting / Cunel (Manja)</option>
+                            <option value="parted-lips">02. Bibir Terbuka (Bedroom Eyes)</option>
+                            <option value="biting-lip">03. Gigit Bibir Bawah (Goda)</option>
+                            <option value="tilting">04. Kepala Miring (Innocent)</option>
+                            <option value="wink-grin">05. Kedipan & Senyum Tipis</option>
+                            <option value="scrunchy-nose">06. Senyum Hidung Kerut (Lucu)</option>
+                            <option value="resting-chin">07. Topang Dagu (Lirik Atas)</option>
+                            <option value="fierce">08. Tatapan Tajam (Model Look)</option>
+                            <option value="laughing">09. Tertawa Alami (Mata Tutup)</option>
+                            <option value="shy-blush">10. Senyum Malu (Blushing)</option>
+                            <option value="smirking">11. Smirk Nakal (Playful)</option>
+                            <option value="tongue-out">12. Melet Tipis (Teasing)</option>
+                            <option value="surprised">13. Kaget Lucu (Small Gasp)</option>
+                            <option value="dreamy">14. Tatapan Kosong (Dreamy)</option>
+                            <option value="pensive">15. Melamun Serius</option>
+                            <option value="blowing-kiss">16. Flying Kiss</option>
+                            <option value="sleepy">17. Mata Ngantuk (Morning Vibe)</option>
+                            <option value="whistling">18. Bersiul Lucu</option>
+                            <option value="loving">19. Tatapan Sayang (Warm)</option>
+                            <option value="determined">20. Fokus Bertekad</option>
+                        </select>
+                    </div>
+
+                    <!-- 3. MAKEUP (20) -->
+                    <div class="space-y-1">
+                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">3. Gaya Riasan (20)</label>
+                        <select id="makeup" class="w-full p-2 rounded-md">
+                            <option value="no-makeup look, natural appearance" selected>01. Tanpa Makeup (Alami)</option>
+                            <option value="soft pink lip gloss, subtle mascara">02. Lip Gloss Pink & Maskara</option>
+                            <option value="peachy blush, gradient lips, soft wing eyeliner">03. Gaya Peachy (Soft Girl)</option>
+                            <option value="bold red lipstick, sharp feline eyeliner">04. Lipstik Merah & Eyeliner Tajam</option>
+                            <option value="shimmering eyeshadow, high glossy lips">05. Glamour & Berkilau</option>
+                            <option value="matte nude lips, brown tones">06. Nude & Earthy Tones</option>
+                            <option value="aegyo-sal emphasis, doll-like lashes">07. Fokus Aegyo-sal (Cute)</option>
+                            <option value="korean gradient lips, dewy finish">08. Ombre Lips (Korean Style)</option>
+                            <option value="faded lip tint, messy makeup">09. Lip Tint Pudar (Candid)</option>
+                            <option value="dark smoky eyes, gothic alluring look">10. Smoky Eyes (Sultry)</option>
+                            <option value="slight blush on nose tip and cheeks">11. Blush di Ujung Hidung</option>
+                            <option value="clear eyebrows, transparent lip balm">12. Alis & Bibir Natural</option>
+                            <option value="shimmering highlight on cheekbones">13. High Highlight Detail</option>
+                            <option value="bronzed cheeks, golden sun-kissed makeup">14. Bronzed & Glowing</option>
+                            <option value="thick eyelashes, wide-eyed look">15. Bulu Mata Tebal</option>
+                            <option value="cat-eye eyeliner, matte lipstick">16. Cat-Eye Intense</option>
+                            <option value="soft focus makeup, blurred lip edges">17. Soft Focus Makeup</option>
+                            <option value="subtle contouring, defined cheekbones">18. Kontur Pipi Tajam</option>
+                            <option value="clean girl aesthetic, minimal makeup">19. Clean Girl Aesthetic</option>
+                            <option value="messy eyeliner, dramatic look">20. Eyeliner Dramatis</option>
+                        </select>
+                    </div>
+
+                    <!-- 4. MATERIAL BAJU (20) -->
+                    <div class="space-y-1">
+                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">4. Tekstur Bahan Baju (20)</label>
+                        <select id="material" class="w-full p-2 rounded-md">
+                            <option value="soft knitted cotton with visible weave" selected>01. Rajut Katun (Knitted)</option>
+                            <option value="glossy smooth silk material, reflective">02. Sutra Halus (Silk)</option>
+                            <option value="rugged blue denim texture, white stitching">03. Denim Kasar (Jeans)</option>
+                            <option value="sheer translucent fabric, soft layers">04. Kain Transparan (Sheer)</option>
+                            <option value="premium leather texture, slight sheen">05. Kulit Premium (Leather)</option>
+                            <option value="ribbed fabric texture, tight fit">06. Bahan Ribbed (Garis)</option>
+                            <option value="satin fabric, liquid-like reflections">07. Satin (Efek Cair)</option>
+                            <option value="tweed fabric texture, luxury look">08. Tweed (Chanel Style)</option>
+                            <option value="fuzzy mohair wool, soft texture">09. Wol Mohair (Bulu Halus)</option>
+                            <option value="spandex athletic material, sleek sheen">10. Spandex / Gym Fabric</option>
+                            <option value="delicate lace patterns, intricate details">11. Renda / Brukat (Lace)</option>
+                            <option value="velvet fabric, deep shadows, soft touch">12. Beludru (Velvet)</option>
+                            <option value="linen fabric with natural wrinkles">13. Bahan Linen (Serat)</option>
+                            <option value="high-gloss latex material, sharp reflections">14. Lateks Glossy (Ekstrem)</option>
+                            <option value="sequined glittery material, shimmering">15. Payet / Sequin (Sparkle)</option>
+                            <option value="puffy puffer jacket material, nylon sheen">16. Bahan Puffer / Parasut</option>
+                            <option value="soft cashmere wool texture">17. Cashmere Mewah</option>
+                            <option value="canvas fabric, heavy texture">18. Bahan Kanvas / Tebal</option>
+                            <option value="corduroy ribbed texture, vintage feel">19. Korduroi (Retro)</option>
+                            <option value="waffle knit texture, breathable">20. Waffle Knit (Casual)</option>
+                        </select>
+                    </div>
+
+                    <!-- 5. ANGLE (20) -->
+                    <div class="space-y-1">
+                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">5. Sudut Kamera (20)</label>
+                        <select id="angle" class="w-full p-2 rounded-md">
+                            <option value="eye-level, direct gaze" selected>01. Sejajar Mata (Natural)</option>
+                            <option value="low-angle, looking up, tall look">02. Sudut Rendah (Dominan)</option>
+                            <option value="high-angle, looking down, cute gaze">03. Sudut Tinggi (Gemas)</option>
+                            <option value="side profile, showing jawline">04. Profil Samping (90 Deg)</option>
+                            <option value="over the shoulder POV">05. Balik Bahu (POV)</option>
+                            <option value="bird's eye view, looking down">06. Bird's Eye (Atas)</option>
+                            <option value="worm's eye view, floor level">07. Worm's Eye (Lantai)</option>
+                            <option value="dutch angle, tilted frame">08. Frame Miring (Dutch)</option>
+                            <option value="macro close-up on face">09. Makro Wajah</option>
+                            <option value="three-quarter view">10. Tiga Perempat</option>
+                            <option value="low-side angle, seductive">11. Samping Rendah (Goda)</option>
+                            <option value="top-down symmetry">12. Simetri Atas</option>
+                            <option value="knee-level perspective">13. Setinggi Lutut</option>
+                            <option value="slight head tilt, close-up">14. Kepala Miring (Close-up)</option>
+                            <option value="dynamic oblique angle">15. Oblique Dinamis</option>
+                            <option value="ground level placement">16. Permukaan Tanah</option>
+                            <option value="wide environmental shot">17. Wide Shot</option>
+                            <option value="tracking shot style">18. Tracking (Candid)</option>
+                            <option value="fisheye wide angle">19. Fisheye Lebar</option>
+                            <option value="close-up on lips and chin">20. Fokus Bibir & Dagu</option>
+                        </select>
+                    </div>
+
+                    <!-- 6. CAHAYA (20) -->
+                    <div class="space-y-1">
+                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">6. Cahaya & Mood (20)</label>
+                        <select id="lighting" class="w-full p-2 rounded-md">
+                            <option value="natural ambient light, matching the background" selected>01. Alami (Ikuti BG)</option>
+                            <option value="golden hour, sunbeams, warm glow">02. Golden Hour Sore</option>
+                            <option value="direct smartphone flash, night mode look">03. Flash Kamera HP</option>
+                            <option value="soft window morning light">04. Jendela Pagi (Soft)</option>
+                            <option value="harsh cinematic sunlight, high contrast">05. Matahari Terik</option>
+                            <option value="dim warm indoor light, ISO grain">06. Remang-remang (Cozy)</option>
+                            <option value="neon blue and pink rim lighting">07. Neon (Cyberpunk)</option>
+                            <option value="backlit glow, silhouette effect">08. Backlit (Siluet)</option>
+                            <option value="mysterious moonlight beams">09. Cahaya Bulan</option>
+                            <option value="studio softbox lighting, clean">10. Studio (Softbox)</option>
+                            <option value="warm candlelight glow">11. Cahaya Lilin</option>
+                            <option value="rainbow prism light leaks">12. Kebocoran Pelangi</option>
+                            <option value="flat overcast day light">13. Cahaya Mendung</option>
+                            <option value="city lights bokeh in background">14. Lampu Kota (Bokeh)</option>
+                            <option value="underwater light refraction">15. Cahaya Dalam Air</option>
+                            <option value="orange street lamp glow">16. Lampu Jalanan Oranye</option>
+                            <option value="screen blue glow on face">17. Cahaya Layar HP</option>
+                            <option value="foggy morning haze">18. Kabut Pagi</option>
+                            <option value="dramatic hard shadows">19. Bayangan Artistik</option>
+                            <option value="misty gloomy night">20. Malam Berkabut</option>
+                        </select>
+                    </div>
+
+                    <!-- 7. HIJAB & AKSESORIS (20) -->
+                    <div class="space-y-1">
+                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">7. Aksesoris & Hijab (20)</label>
+                        <select id="accessories" class="w-full p-2 rounded-md">
+                            <option value="" selected>01. Tanpa Aksesoris</option>
+                            <option value="wearing a beautiful modern pashmina hijab, elegant wrap">02. Hijab Pashmina (Modern)</option>
+                            <option value="wearing a simple square hijab, clean style">03. Hijab Segiempat (Simple)</option>
+                            <option value="wearing a stylish sports hijab">04. Hijab Olahraga (Sport)</option>
+                            <option value="wearing gold glasses, thin frames">05. Kacamata Gold</option>
+                            <option value="wearing small diamond stud earrings">06. Anting Berlian</option>
+                            <option value="wearing a black velvet choker necklace">07. Choker Hitam</option>
+                            <option value="wearing a thin silver heart necklace">08. Kalung Perak</option>
+                            <option value="wearing oversized dark sunglasses">09. Kacamata Hitam Besar</option>
+                            <option value="wearing a stylish smartwatch">10. Jam Tangan Pintar</option>
+                            <option value="wearing a cute beret hat">11. Topi Beret (Cute)</option>
+                            <option value="wearing over-ear wireless headphones">12. Headphone di Leher</option>
+                            <option value="wearing minimalist rings on fingers">13. Cincin Minimalis</option>
+                            <option value="wearing a dainty pearl bracelet">14. Gelang Mutiara</option>
+                            <option value="wearing a small flower tucked behind ear">15. Bunga di Telinga</option>
+                            <option value="wearing a baseball cap reversed">16. Topi Baseball Terbalik</option>
+                            <option value="wearing cat-ear headband playfully">17. Bando Telinga Kucing</option>
+                            <option value="wearing a silk scarf around neck">18. Syal Sutra</option>
+                            <option value="wearing a small nose stud jewelry">19. Piercing Hidung Kecil</option>
+                            <option value="wearing a trendy waist belt">20. Ikat Pinggang Trendy</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-end">
+                        <button onclick="saveToCloud()" id="btnSave" class="w-full gold-bg text-black font-black py-2 rounded-md hover:opacity-90 text-[10px] uppercase tracking-tighter shadow-lg transition-all">
+                            SAVE TO CLOUD
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Outputs -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+                    <div class="section-card space-y-3 bg-zinc-900/40 shadow-xl">
+                        <div class="flex justify-between items-center border-b border-zinc-800 pb-2">
+                            <span class="text-[10px] font-bold text-yellow-600 uppercase tracking-widest">1. Prompt Gambar (Hyper-PRO)</span>
+                            <div class="flex gap-2">
+                                <button onclick="copyToClipboard('finalPrompt')" class="gold-bg text-black text-[8px] font-black px-3 py-1 rounded-full btn-copy">COPY IMAGE</button>
+                                <button onclick="copyNegative('image')" class="bg-zinc-800 text-zinc-400 text-[8px] font-black px-3 py-1 rounded-full btn-copy">NEGATIVE</button>
+                            </div>
+                        </div>
+                        <div id="finalPrompt" class="text-[10px] text-zinc-400 leading-relaxed h-40 overflow-y-auto font-mono bg-black p-3 rounded"></div>
+                    </div>
+
+                    <div class="section-card space-y-3 border-t-2 border-yellow-600 bg-zinc-900/40 shadow-xl">
+                        <div class="flex justify-between items-center border-b border-zinc-800 pb-2">
+                            <span class="text-[10px] font-bold text-yellow-600 uppercase tracking-widest text-shadow">2. Video Sync (Motion Sync)</span>
+                            <div class="flex gap-2">
+                                <button onclick="copyToClipboard('videoPrompt')" class="gold-bg text-black text-[8px] font-black px-3 py-1 rounded-full btn-copy">COPY VIDEO</button>
+                                <button onclick="copyNegative('video')" class="bg-zinc-800 text-zinc-400 text-[8px] font-black px-3 py-1 rounded-full btn-copy">NEGATIVE</button>
+                            </div>
+                        </div>
+                        <div id="videoPrompt" class="text-[10px] text-zinc-400 leading-relaxed h-40 overflow-y-auto font-mono bg-black p-3 rounded"></div>
+                    </div>
+                </div>
+
+                <!-- FOOTER -->
+                <footer class="mt-8 pt-6 border-t border-zinc-900">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="space-y-2 text-center md:text-left">
+                            <h4 class="text-[10px] font-black gold-text uppercase tracking-widest">💡 Cara Pakai</h4>
+                            <p class="text-[9px] text-zinc-500 leading-relaxed">
+                                1. Pilih pose & variabel. Tekstur kulit sudah terkunci otomatis.<br>
+                                2. Siapkan 3 Referensi (9 Angle Wajah, BG, Baju).<br>
+                                3. Salin Prompt ke AI Generator Anda.
+                            </p>
+                        </div>
+                        <div class="space-y-2 text-center md:text-left">
+                            <h4 class="text-[10px] font-black gold-text uppercase tracking-widest">📌 Intelligent Tech</h4>
+                            <p class="text-[9px] text-zinc-500 leading-relaxed">
+                                V9.5 menyuntikkan detail pori-pori mikro, minyak alami, dan refleksi kulit raw ke setiap prompt secara otomatis.
+                            </p>
+                        </div>
+                        <div class="flex flex-col justify-end items-center md:items-end">
+                            <p class="footer-text font-black gold-text italic uppercase">Anne Generator v9.5</p>
+                            <p class="footer-text opacity-50">Dibuat dengan dedikasi oleh</p>
+                            <p class="text-xs font-black text-white tracking-tighter uppercase mt-1">Imron Al</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        
+        <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 gold-bg text-black px-8 py-3 rounded-full font-black text-[9px] hidden shadow-2xl uppercase tracking-widest animate-bounce z-50">NOTIFIKASI</div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDocs, collection, query, onSnapshot, serverTimestamp, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Firebase Setup
+        const firebaseConfig = JSON.parse(__firebase_config);
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        let currentUser = null;
+
+        const initAuth = async () => {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (error) { console.error("Auth Error:", error); }
+        };
+
+        onAuthStateChanged(auth, (user) => {
+            currentUser = user;
+            const authStatusEl = document.getElementById('authStatus');
+            if(authStatusEl) authStatusEl.innerText = user ? `SYSTEM ONLINE | ID: ${user.uid.substring(0,6)}` : "SYSTEM OFFLINE";
+            if (user) fetchHistory();
+        });
+
+        initAuth();
+
+        // ---------------------------------------------------------
+        // LOCKED HYPER-REALISTIC SKIN PROMPT
+        // ---------------------------------------------------------
+        const FACE_BASE = "STRICTLY FOLLOW FACE REFERENCE 1: Anne, Southeast Asian woman, persistent monolid eyes, natural aegyo-sal, straight horizontal eyebrows, low-bridge nose. Oval youthful face as in ref 1.";
+        const HAIR_BASE = "Her hair is black shoulder-length with wispy bangs.";
+        const BODY_BASE = "Slim hourglass figure, prominent bust.";
+        const MOBILE_META = "Smartphone photography, shot on iPhone 17 Pro Orange, 24mm lens, RAW photo, no airbrush, high-end mobile sensor logic.";
+        
+        // KUNCI TEKSTUR KULIT (Formula Rahasia)
+        const LOCKED_SKIN = "micro-detailed skin texture, visible pores, natural skin grain, subtle skin oil sheen on T-zone, subsurface scattering, tiny natural imperfections, unfiltered skin, raw texture.";
+
+        const INTEGRATION = "Matching EXACT background from ref 2 and outfit from ref 3. Anne's skin MUST reflect ambient lighting of background. Natural shadows.";
+        const NEG_IMAGE = "(double eyelid:2.5), (high nose bridge:2.5), sharp jawline, western features, CGI, 3d render, illustration, airbrushed, plastic skin, doll-face, fake lashes, perfect teeth.";
+        const NEG_VIDEO = "morphing face, distorted features, flickering, unstable physics, character changing, extra limbs, blurry face.";
+
+        const motionMap = {
+            "mirror-selfie": "Anne looks at her reflection, slowly tilting head and checking her pose on phone screen. Natural hand tremors.",
+            "direct-selfie": "Anne holds phone arm extended, moving camera in subtle arc while smiling. Handheld smartphone vibration.",
+            "leaning-forward": "Anne slowly leans forward toward the camera, focus on her eyes shifting to a playful smirk.",
+            "bite-lip-shoulder": "Anne turns her head slowly to look over shoulder while gently biting her lower lip.",
+            "adjust-strap": "Anne slowly adjusts her top strap with fingers, gazing into the lens. Cinematic slow-mo movement.",
+            "run-fingers": "Anne runs fingers through her black hair slowly. Hair moves naturally with gravity.",
+            "trace-collarbone": "Anne slowly traces her collarbone with one finger, her eyes following the lens with a sultry gaze."
+        };
+
+        window.generate = function() {
+            try {
+                const poseEl = document.getElementById('pose');
+                const exprEl = document.getElementById('expression');
+                const makeupEl = document.getElementById('makeup');
+                const materialEl = document.getElementById('material');
+                const lightEl = document.getElementById('lighting');
+                const angleEl = document.getElementById('angle');
+                const accEl = document.getElementById('accessories');
+
+                if (!poseEl || !exprEl || !makeupEl || !materialEl || !lightEl || !angleEl || !accEl) return;
+
+                const accVal = accEl.value;
+                const isHijab = accVal.toLowerCase().includes("hijab");
+                const currentHair = isHijab ? "" : HAIR_BASE;
+                const currentAnchor = `${FACE_BASE} ${currentHair} ${BODY_BASE}`;
+
+                const poseDisp = poseEl.options[poseEl.selectedIndex].text.split(". ")[1];
+                const exprDisp = exprEl.options[exprEl.selectedIndex].text.split(". ")[1];
+                const angleDisp = angleEl.options[angleEl.selectedIndex].text.split(". ")[1];
+                const lightDisp = lightEl.options[lightEl.selectedIndex].text.split(". ")[1];
+                
+                // Image Prompt Construction
+                const imagePrompt = `${currentAnchor} Angle: ${angleDisp}. Currently ${poseDisp}, expression: ${exprDisp}. Skin: ${LOCKED_SKIN}. Makeup: ${makeupEl.value}. Wearing ${materialEl.value}${accVal ? ", " + accVal : ""}. ${INTEGRATION} Lighting: ${lightDisp}. ${MOBILE_META}.`;
+                document.getElementById('finalPrompt').innerText = imagePrompt;
+
+                // Video Prompt Construction
+                const mDesc = motionMap[poseEl.value] || "Anne is moving naturally, interacting with environment.";
+                const videoPrompt = `Based on image: ${mDesc} Her expression shifts ${exprDisp}. 4k cinematic mobile video, 60fps, natural physics, consistent face and fabric texture from image. No morphing. Skin texture and light reflections must stay consistent. ${isHijab ? 'The hijab must stay perfectly wrapped.' : ''}`;
+                document.getElementById('videoPrompt').innerText = videoPrompt;
+            } catch (err) {
+                console.error("Error generating prompt:", err);
+            }
+        };
+
+        // ---------------------------------------------------------
+        // CLOUD & UTILS
+        // ---------------------------------------------------------
+        window.saveToCloud = async function() {
+            if (!currentUser) return showToast("WAITING AUTH...");
+            try {
+                const data = {
+                    pose: document.getElementById('pose').value,
+                    expression: document.getElementById('expression').value,
+                    makeup: document.getElementById('makeup').value,
+                    material: document.getElementById('material').value,
+                    angle: document.getElementById('angle').value,
+                    lighting: document.getElementById('lighting').value,
+                    accessories: document.getElementById('accessories').value,
+                    timestamp: serverTimestamp()
+                };
+                await setDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'history', Date.now().toString()), data);
+                showToast("SECURED IN CLOUD");
+            } catch (e) { showToast("SAVE FAILED"); }
+        };
+
+        function fetchHistory() {
+            onSnapshot(collection(db, 'artifacts', appId, 'users', currentUser.uid, 'history'), (snap) => {
+                const list = document.getElementById('historyList');
+                if(!list) return;
+                list.innerHTML = "";
+                const docs = [];
+                snap.forEach(d => docs.push({id: d.id, ...d.data()}));
+                docs.sort((a,b) => (b.timestamp?.seconds || 0) - (a.timestamp?.seconds || 0));
+                if(docs.length === 0) list.innerHTML = `<p class='py-10 text-center opacity-30 text-[8px] uppercase tracking-widest'>EMPTY</p>`;
+                docs.forEach(d => {
+                    const el = document.createElement('div');
+                    el.className = "history-item p-2 cursor-pointer flex justify-between group items-center";
+                    el.onclick = () => {
+                        Object.keys(d).forEach(k => { if(document.getElementById(k)) document.getElementById(k).value = d[k]; });
+                        window.generate();
+                        showToast("LOADED");
+                    };
+                    const label = document.getElementById('pose').querySelector(`option[value="${d.pose}"]`)?.innerText.split(". ")[1] || d.pose;
+                    el.innerHTML = `<span class="truncate">${label}</span> <button onclick="event.stopPropagation(); deleteDoc(doc(db, 'artifacts', '${appId}', 'users', '${currentUser.uid}', 'history', '${d.id}'))" class="opacity-0 group-hover:opacity-100 text-red-900 ml-2">×</button>`;
+                    list.appendChild(el);
+                });
+            });
+        }
+
+        window.executeCopy = function(text) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            el.setAttribute('readonly', '');
+            el.style.position = 'absolute'; el.style.left = '-9999px';
+            document.body.appendChild(el);
+            el.select(); document.execCommand('copy');
+            document.body.removeChild(el);
+            showToast("DISALIN!");
+        };
+
+        window.copyToClipboard = (id) => executeCopy(document.getElementById(id).innerText);
+        window.copyNegative = (t) => executeCopy(t === 'image' ? NEG_IMAGE : NEG_VIDEO);
+        window.showToast = (m) => {
+            const t = document.getElementById('toast');
+            if(!t) return;
+            t.innerText = m; t.classList.remove('hidden');
+            setTimeout(() => t.classList.add('hidden'), 2000);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('select').forEach(s => s.addEventListener('change', window.generate));
+            window.generate();
+        });
+
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            document.querySelectorAll('select').forEach(s => s.addEventListener('change', window.generate));
+            window.generate();
+        }
+    </script>
+</body>
+</html>
