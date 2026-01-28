@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anne Generator v9.2 - Ultimate Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #050505; color: #d1d1d1; font-family: 'Inter', sans-serif; }
+        .gold-border { border: 1px solid #c5a02e; }
+        .gold-text { color: #c5a02e; }
+        .gold-bg { background-color: #c5a02e; }
+        select { background-color: #0a0a0a; color: #fff; border: 1px solid #222; transition: all 0.2s; appearance: none; cursor: pointer; font-size: 0.72rem; }
+        select:focus { border-color: #c5a02e; outline: none; box-shadow: 0 0 15px rgba(197, 160, 46, 0.1); }
+        .btn-copy { transition: all 0.2s; }
+        .btn-copy:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-copy:active { transform: translateY(0); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #c5a02e; border-radius: 10px; }
+        .section-card { background: #0d0d0d; border: 1px solid #161616; padding: 1.25rem; border-radius: 1rem; }
+        .history-item { border-bottom: 1px solid #1a1a1a; transition: background 0.2s; font-size: 0.7rem; }
+        .history-item:hover { background: #111; }
+        .footer-text { font-size: 0.65rem; color: #666; letter-spacing: 0.05em; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-[1440px] mx-auto">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-6 gap-4 border-b border-zinc-900 pb-4">
+            <div>
+                <h1 class="text-3xl font-black gold-text uppercase tracking-tighter italic">Anne Generator <span class="text-white text-sm font-normal opacity-40 not-italic">v9.2 ULTIMATE</span></h1>
+                <p class="text-gray-600 text-[9px] mt-1 uppercase tracking-[0.3em]">Micro-Texture Logic | Video Motion Sync | Crafted by Imron Al</p>
+            </div>
+            <div id="authStatus" class="text-right text-[8px] text-zinc-600 font-mono uppercase tracking-widest">
+                System: Secured | Cloud: Online
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- Sidebar: Cloud History -->
+            <div class="lg:col-span-2 space-y-4">
+                <div class="section-card border-l-2 border-yellow-600 shadow-xl h-[750px] flex flex-col">
+                    <h3 class="text-[9px] font-black gold-text mb-3 uppercase tracking-widest text-center">Memory Cloud</h3>
+                    <div id="historyList" class="flex-1 overflow-y-auto space-y-1 pr-1">
+                        <p class="text-zinc-700 italic text-center py-10 text-[9px]">Menghubungkan ke database...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kontrol Utama -->
+            <div class="lg:col-span-10 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                    
+                    <!-- 1. POSE & INTERAKSI -->
+                    <div class="space-y-1">
+                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">1. Pose & Interaksi</label>
+                        <select id="pose" class="w-full p-2 rounded-md">
+                            <option value="mirror-selfie" selected>01. Mirror Selfie (iPhone 17 Orange)</option>
+                            <option value="direct-selfie">02. Selfie POV (Kamera Depan)</option>
+                            <option value="leaning-forward">03. Condong ke Depan (Sensual)</option>
+                            <option value="adjust-strap">04. Memperbaiki Tali Baju (Teasing)</option>
+                            <option value="trace-collarbone">05. Menyentuh Tulang Selangka</option>
+                            <option value="run-fingers">06. Menyisir Rambut dengan Jari</option>
+                            <option value="bite-lip-shoulder">07. Lirik Bahu & Gigit Bibir</option>
+                            <option value="holding-coffee">08. Memegang Gelas Kopi (Candid)</option>
+                            <option value="sitting-floor">09. Duduk Melantai (Manja)</option>
+                            <option value="crouching">10. Jongkok Gemas (Looking Up)</option>
+                            <option value="reaching-out">11. Tangan Menjangkau Lensa</option>
+                            <option value="fixing-bangs">12. Merapikan Poni (Gemas)</option>
+                            <option value="side-lying">13. Berbaring Menyamping (Alluring)</option>
+                            <option value="hand-on-cheek">14. Tangan di Pipi (Melamun)</option>
+                            <option value="bending-peek">15. Membungkuk Mengintip</option>
+                            <option value="walking-turn">16. Jalan & Menoleh (Cinematic)</option>
+                            <option value="hugging-knees">17. Memeluk Lutut (Manja)</option>
+                            <option value="peace-sign">18. Peace Sign (Playful)</option>
+                            <option value="checking-phone">19. Fokus Melihat Layar HP</option>
+                            <option value="tucking-hair">20. Menyelipkan Rambut di Telinga</option>
+                        </select>
+                    </div>
+
+                    <!-- 2. EKSPRESI -->
+                    <div class="space-y-1">
+                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">2. Ekspresi Mikro</label>
+                        <select id="expression" class="w-full p-2 rounded-md">
+                            <option value="pouting" selected>01. Pouting / Cunel (Manja)</option>
+                            <option value="parted-lips">02. Bibir Terbuka (Bedroom Eyes)</option>
+                            <option value="biting-lip">03. Gigit Bibir Bawah (Goda)</option>
+                            <option value="tilting">04. Kepala Miring (Innocent)</option>
+                            <option value="wink-grin">05. Kedipan & Senyum Tipis</option>
+                            <option value="scrunchy-nose">06. Senyum Hidung Kerut (Lucu)</option>
+                            <option value="resting-chin">07. Topang Dagu (Lirik Atas)</option>
+                            <option value="fierce">08. Tatapan Tajam (Model Look)</option>
+                            <option value="laughing">09. Tertawa Alami (Mata Tutup)</option>
+                            <option value="shy-blush">10. Senyum Malu (Blushing)</option>
+                            <option value="smirking">11. Smirk Nakal (Playful)</option>
+                            <option value="tongue-out">12. Melet Tipis (Teasing)</option>
+                            <option value="surprised">13. Kaget Lucu (Small Gasp)</option>
+                            <option value="dreamy">14. Tatapan Kosong (Dreamy)</option>
+                            <option value="pensive">15. Melamun Serius</option>
+                            <option value="blowing-kiss">16. Flying Kiss</option>
+                            <option value="sleepy">17. Mata Ngantuk (Morning Vibe)</option>
+                            <option value="whistling">18. Bersiul Lucu</option>
+                            <option value="loving">19. Tatapan Sayang (Warm)</option>
+                            <option value="determined">20. Fokus Bertekad</option>
+                        </select>
+                    </div>
+
+                    <!-- 3. TEKSTUR KULIT -->
+                    <div class="space-y-1">
+                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">3. Tekstur Kulit Mikro</label>
+                        <select id="skin" class="w-full p-2 rounded-md">
+                            <option value="visible skin pores, natural skin grain, hyper-realistic texture" selected>01. Pori-pori Terlihat (Natural)</option>
+                            <option value="slight oily sheen on T-zone, realistic skin oil reflection">02. Sedikit Berminyak (Oily T-Zone)</option>
+                            <option value="dewy skin with realistic moisture and glow">03. Dewy / Lembap (K-Glow)</option>
+                            <option value="tiny beauty marks and small natural moles on face">04. Tanda Lahir & Tahi Lalat Kecil</option>
+                            <option value="slight sweat droplets on forehead and neck">05. Keringat Tipis (Sultry/Gym)</option>
+                            <option value="micro-
