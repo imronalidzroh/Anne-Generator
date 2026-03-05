@@ -55,7 +55,7 @@
                     
                     <!-- 1. POSE (20) -->
                     <div class="space-y-1">
-                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">1. Pose & Interaksi (20)</label>
+                        <label for="pose" class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">1. Pose & Interaksi (20)</label>
                         <select id="pose" class="w-full p-2 rounded-md">
                             <option value="mirror-selfie" selected>01. Mirror Selfie (iPhone 17 Orange)</option>
                             <option value="direct-selfie">02. Selfie POV (Kamera Depan)</option>
@@ -82,7 +82,7 @@
 
                     <!-- 2. EKSPRESI (20) -->
                     <div class="space-y-1">
-                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">2. Ekspresi Mikro (20)</label>
+                        <label for="expression" class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">2. Ekspresi Mikro (20)</label>
                         <select id="expression" class="w-full p-2 rounded-md">
                             <option value="pouting" selected>01. Pouting / Cunel (Manja)</option>
                             <option value="parted-lips">02. Bibir Terbuka (Bedroom Eyes)</option>
@@ -109,7 +109,7 @@
 
                     <!-- 3. MAKEUP (20) -->
                     <div class="space-y-1">
-                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">3. Gaya Riasan (20)</label>
+                        <label for="makeup" class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">3. Gaya Riasan (20)</label>
                         <select id="makeup" class="w-full p-2 rounded-md">
                             <option value="no-makeup look, natural appearance" selected>01. Tanpa Makeup (Alami)</option>
                             <option value="soft pink lip gloss, subtle mascara">02. Lip Gloss Pink & Maskara</option>
@@ -136,7 +136,7 @@
 
                     <!-- 4. MATERIAL BAJU (20) -->
                     <div class="space-y-1">
-                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">4. Tekstur Bahan Baju (20)</label>
+                        <label for="material" class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">4. Tekstur Bahan Baju (20)</label>
                         <select id="material" class="w-full p-2 rounded-md">
                             <option value="soft knitted cotton with visible weave" selected>01. Rajut Katun (Knitted)</option>
                             <option value="glossy smooth silk material, reflective">02. Sutra Halus (Silk)</option>
@@ -163,7 +163,7 @@
 
                     <!-- 5. ANGLE (20) -->
                     <div class="space-y-1">
-                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">5. Sudut Kamera (20)</label>
+                        <label for="angle" class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">5. Sudut Kamera (20)</label>
                         <select id="angle" class="w-full p-2 rounded-md">
                             <option value="eye-level, direct gaze" selected>01. Sejajar Mata (Natural)</option>
                             <option value="low-angle, looking up, tall look">02. Sudut Rendah (Dominan)</option>
@@ -190,7 +190,7 @@
 
                     <!-- 6. CAHAYA (20) -->
                     <div class="space-y-1">
-                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">6. Cahaya & Mood (20)</label>
+                        <label for="lighting" class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">6. Cahaya & Mood (20)</label>
                         <select id="lighting" class="w-full p-2 rounded-md">
                             <option value="natural ambient light, matching the background" selected>01. Alami (Ikuti BG)</option>
                             <option value="golden hour, sunbeams, warm glow">02. Golden Hour Sore</option>
@@ -217,7 +217,7 @@
 
                     <!-- 7. HIJAB & AKSESORIS (20 - UPDATED INDO YOUTH STYLE) -->
                     <div class="space-y-1">
-                        <label class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">7. Aksesoris Indo-Youth (20)</label>
+                        <label for="accessories" class="text-[9px] font-black uppercase text-zinc-500 tracking-tighter italic">7. Aksesoris Indo-Youth (20)</label>
                         <select id="accessories" class="w-full p-2 rounded-md">
                             <option value="" selected>01. Tanpa Aksesoris</option>
                             <option value="wearing a beautiful modern pashmina hijab, elegant wrap">02. Hijab Pashmina Modern</option>
@@ -301,7 +301,7 @@
             </div>
         </div>
         
-        <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 gold-bg text-black px-8 py-3 rounded-full font-black text-[9px] hidden shadow-2xl uppercase tracking-widest animate-bounce z-50">NOTIFIKASI</div>
+        <div id="toast" role="status" aria-live="polite" class="fixed bottom-6 left-1/2 -translate-x-1/2 gold-bg text-black px-8 py-3 rounded-full font-black text-[9px] hidden shadow-2xl uppercase tracking-widest animate-bounce z-50">NOTIFIKASI</div>
     </div>
 
     <!-- Firebase SDKs -->
@@ -401,6 +401,11 @@
         // ---------------------------------------------------------
         window.saveToCloud = async function() {
             if (!currentUser) return showToast("WAITING AUTH...");
+            const btn = document.getElementById('btnSave');
+            if (btn) {
+                btn.disabled = true;
+                btn.innerText = "SAVING...";
+            }
             try {
                 const data = {
                     pose: document.getElementById('pose').value,
@@ -414,7 +419,14 @@
                 };
                 await setDoc(doc(db, 'artifacts', appId, 'users', currentUser.uid, 'history', Date.now().toString()), data);
                 showToast("SECURED IN CLOUD");
-            } catch (e) { showToast("SAVE FAILED"); }
+            } catch (e) {
+                showToast("SAVE FAILED");
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerText = "SAVE TO CLOUD";
+                }
+            }
         };
 
         function fetchHistory() {
